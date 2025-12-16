@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2025 at 04:22 PM
+-- Generation Time: Dec 17, 2025 at 12:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,7 +62,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `name`, `description`) VALUES
-(1, 'Education', 'all donations must be monetary and must be intended for school supplies, tuition assistance, or educational programs.'),
+(1, 'Education', 'Donations for school supplies, tuition assistance, or educational programs.'),
 (2, 'Food', 'Donations for feeding programs, food packs, or relief goods.'),
 (3, 'Clothes', 'Donations for clothing, blankets, and wearable items.'),
 (4, 'Medical', 'Donations for medicine, medical missions, and healthcare support.');
@@ -203,13 +203,6 @@ CREATE TABLE `sessions` (
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `sessions`
---
-
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('jrVjZD5fUCYrUZo4k5DxD2STEZqRQk25oFq4zsxy', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0', 'YTo2OntzOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjY6Il90b2tlbiI7czo0MDoiVXYxM08yWHI1dG1ZTDJadkhJRmltY1U1dmJ1N0tPV3BRWncyTm1mNSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9hY2NvdW50cyI7czo1OiJyb3V0ZSI7Tjt9czo3OiJ1c2VyX2lkIjtpOjE7czo4OiJ1c2VybmFtZSI7czo2OiJhZG1pbjEiO3M6NDoicm9sZSI7czo1OiJBZG1pbiI7fQ==', 1765898486);
-
 -- --------------------------------------------------------
 
 --
@@ -232,6 +225,13 @@ CREATE TABLE `users` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `name`, `username`, `email`, `password`, `email_verified_at`, `phone`, `address`, `role`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `created_by`) VALUES
+(1, 'Admin Leigh', 'admin1', 'admin1@email.com', 'admin1', NULL, '01234567899', 'pili', 'Admin', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -334,7 +334,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `donation`
 --
 ALTER TABLE `donation`
-  MODIFY `donation_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `donation_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -364,7 +364,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
